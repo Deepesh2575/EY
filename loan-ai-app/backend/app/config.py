@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     anthropic_api_key: str = os.getenv("ANTHROPIC_API_KEY", "")
 
     # CORS
-    allowed_origins: List[str] = ["http://localhost:5173", "http://localhost:3000"]
+    allowed_origins: List[str] = ["http://localhost:5173", "http://localhost:3000", "http://localhost:3002", "http://localhost:3003"]
 
     # File Upload
     upload_dir: Path = BASE_DIR / "uploads"
