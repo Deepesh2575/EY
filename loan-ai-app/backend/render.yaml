@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: loan-ai-backend
+    env: python
+    buildCommand: "pip install -r requirements.txt && python -m app.database.init_db"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ENVIRONMENT
+        value: production
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: 30
+      - key: MAX_FILE_SIZE
+        value: 5242880
+
+
