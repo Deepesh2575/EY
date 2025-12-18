@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles from old frontend/src/globals.css and frontend/src/index.css */
+
+/* Base styles from frontend/src/index.css and frontend/src/app/globals.css */
+@layer base {
+  * {
+    /* From app/globals.css */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-color: #334155; /* From dark-700 in tailwind.config.mjs */
+  }
+
+  body {
+    background-color: #0f172a; /* From dark-900 in tailwind.config.mjs */
+    color: #f3f4f6; /* From gray-100 */
+    font-family: 'Inter', 'Poppins', 'system-ui', sans-serif; /* From tailwind.config.mjs font-sans */
+    -webkit-font-smoothing: antialiased; /* antialiased */
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Custom scrollbar from index.css */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #1e293b; /* From dark-800 in tailwind.config.mjs */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #334155; /* From dark-700 in tailwind.config.mjs */
+    border-radius: 9999px; /* rounded-full */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #475569; /* From dark-600 in tailwind.config.mjs */
+  }
+}
+
+/* Smooth scrolling from app/globals.css */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Components layer from index.css */
+@layer components {
+  .chat-container {
+    background: linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a); /* Using hex codes from tailwind.config.mjs */
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* h-screen */
+  }
+
+  /* Smooth animations from index.css */
+  .animate-slide-in-left {
+    animation: slideInLeft 0.3s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-bounce-dot {
+    animation: bounce 1.4s infinite;
+  }
+}
+
+/* Keyframes from index.css (and duplicated in app/globals.css - taking from index.css) */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
+}
